@@ -10,7 +10,8 @@ interface ChatProviderProps {
 }
 
 const apiKey = import.meta.env.VITE_STREAM_API_KEY as string;
-const backendUrl = import.meta.env.VITE_BACKEND_URL as string;
+const rawBackendUrl = import.meta.env.VITE_BACKEND_URL as string;
+const backendUrl = rawBackendUrl ? rawBackendUrl.replace(/\/$/, "") : "";
 
 if (!apiKey) {
   throw new Error("Missing VITE_STREAM_API_KEY in .env file");

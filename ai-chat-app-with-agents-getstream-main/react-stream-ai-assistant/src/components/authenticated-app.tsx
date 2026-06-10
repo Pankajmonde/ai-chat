@@ -36,7 +36,8 @@ const AuthenticatedCore = ({ user, onLogout }: AuthenticatedAppProps) => {
   const { client, setActiveChannel } = useChatContext();
   const navigate = useNavigate();
   const { channelId } = useParams<{ channelId: string }>();
-  const backendUrl = import.meta.env.VITE_BACKEND_URL as string;
+  const rawBackendUrl = import.meta.env.VITE_BACKEND_URL as string;
+  const backendUrl = rawBackendUrl ? rawBackendUrl.replace(/\/$/, "") : "";
 
   useEffect(() => {
     const syncChannelWithUrl = async () => {
