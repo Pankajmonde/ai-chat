@@ -1,11 +1,11 @@
 # Chat AI App
 
-A modern AI-powered chat application built with **Stream Chat**, **OpenAI**, and **web search capabilities**. This full-stack application provides an intelligent writing assistant that can help with content creation, research, and real-time collaboration.
+A modern AI-powered chat application built with **Stream Chat**, **Google Gemini API**, and **web search capabilities**. This full-stack application provides an intelligent writing assistant that can help with content creation, research, and real-time collaboration.
 
 ## 🚀 Features
 
 - **Real-time Chat**: Powered by [GetStream.io](https://getstream.io) for seamless messaging
-- **AI Writing Assistant**: OpenAI GPT-4 integration for intelligent content generation
+- **AI Writing Assistant**: Google Gemini API integration for intelligent content generation
 - **Web Search**: Live web search capabilities using Tavily API for current information
 - **Modern UI**: Beautiful React interface with dark/light theme support
 - **Writing Prompts**: Categorized writing prompts for business, content, communication, and creative tasks
@@ -19,7 +19,7 @@ A modern AI-powered chat application built with **Stream Chat**, **OpenAI**, and
 
 - **Node.js/Express** server
 - **Stream Chat** server-side integration
-- **OpenAI API** for AI responses
+- **Gemini API** for AI responses (using the `@google/genai` SDK)
 - **Tavily API** for web search functionality
 - Agent management system with automatic cleanup
 
@@ -35,7 +35,7 @@ A modern AI-powered chat application built with **Stream Chat**, **OpenAI**, and
 - Node.js 20 or higher
 - npm or yarn package manager
 - GetStream.io account (free tier available)
-- OpenAI API account
+- Gemini API key (from Google AI Studio)
 - Tavily API account (for web search)
 
 ## 🛠️ Setup Instructions
@@ -74,8 +74,8 @@ Configure your `.env` file with the following keys:
 STREAM_API_KEY=your_stream_api_key_here
 STREAM_API_SECRET=your_stream_api_secret_here
 
-# OpenAI API key - Get from https://platform.openai.com/api-keys
-OPENAI_API_KEY=your_openai_api_key_here
+# Gemini API key - Get from https://aistudio.google.com/
+GEMINI_API_KEY=your_gemini_api_key_here
 
 # Tavily API key - Get from https://tavily.com
 TAVILY_API_KEY=your_tavily_api_key_here
@@ -120,12 +120,12 @@ VITE_BACKEND_URL=http://localhost:3000
 3. Copy your **API Key** and **API Secret** from the dashboard
 4. Use the same **API Key** in both backend and frontend `.env` files
 
-#### OpenAI API Setup
+#### Gemini API Setup
 
-1. Sign up at [OpenAI Platform](https://platform.openai.com/)
-2. Navigate to API Keys section
+1. Sign up at [Google AI Studio](https://aistudio.google.com/)
+2. Navigate to the API Keys section
 3. Create a new API key
-4. Add it to your backend `.env` file
+4. Add it to your backend `.env` file as `GEMINI_API_KEY`
 
 #### Tavily API Setup
 
@@ -172,7 +172,7 @@ graph TD
     A[Frontend React App] --> B[Stream Chat React Components]
     B --> C[Stream Chat API]
     C --> D[Backend Node.js Server]
-    D --> E[OpenAI API]
+    D --> E[Gemini API]
     D --> F[Tavily Web Search]
     D --> G[AI Agent Management]
 ```
@@ -194,7 +194,7 @@ The application features a sophisticated AI agent management system:
 ### Agent Lifecycle
 
 1. **Creation**: AI agents are created per channel when requested
-2. **Initialization**: OpenAI assistant setup with web search capabilities
+2. **Initialization**: Gemini chat setup with web search capabilities
 3. **Message Handling**: Processes user messages and generates responses
 4. **Web Search**: Automatically searches the web for current information
 5. **Cleanup**: Automatic disposal after inactivity
@@ -283,7 +283,7 @@ npm run build
 - **Node.js** - Runtime environment
 - **Express** - Web framework
 - **Stream Chat** - Real-time messaging
-- **OpenAI** - AI language model
+- **@google/genai** - Google Gen AI SDK (Gemini)
 - **Axios** - HTTP client
 - **CORS** - Cross-origin resource sharing
 - **TypeScript** - Type safety
@@ -316,9 +316,9 @@ This project is licensed under the MIT License.
 For support and questions:
 
 - Check the [GetStream.io Documentation](https://getstream.io/chat/docs/)
-- Review [OpenAI API Documentation](https://platform.openai.com/docs)
+- Review [Gemini API Documentation](https://ai.google.dev/docs)
 - Create an issue in this repository
 
 ---
 
-Built with ❤️ using GetStream.io, OpenAI, and modern web technologies.
+Built with ❤️ using GetStream.io, Gemini API, and modern web technologies.
